@@ -1,0 +1,532 @@
+call_center_1_8.dat
+call_center_1
+call_center
+INSERT INTO call_center FORMAT CSV <-- 4.0K	/data/tpcds-data/call_center_1_8.dat
+catalog_page_1_8.dat
+catalog_page_1
+catalog_page
+INSERT INTO catalog_page FORMAT CSV <-- 1.6M	/data/tpcds-data/catalog_page_1_8.dat
+catalog_returns_10_8.dat
+catalog_returns_10
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_10_8.dat
+catalog_returns_11_8.dat
+catalog_returns_11
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_11_8.dat
+catalog_returns_12_8.dat
+catalog_returns_12
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_12_8.dat
+catalog_returns_13_8.dat
+catalog_returns_13
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_13_8.dat
+catalog_returns_14_8.dat
+catalog_returns_14
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_14_8.dat
+catalog_returns_15_8.dat
+catalog_returns_15
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_15_8.dat
+catalog_returns_16_8.dat
+catalog_returns_16
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_16_8.dat
+catalog_returns_17_8.dat
+catalog_returns_17
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_17_8.dat
+catalog_returns_18_8.dat
+catalog_returns_18
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_18_8.dat
+catalog_returns_1_8.dat
+catalog_returns_1
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 530M	/data/tpcds-data/catalog_returns_1_8.dat
+catalog_returns_19_8.dat
+catalog_returns_19
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_19_8.dat
+catalog_returns_20_8.dat
+catalog_returns_20
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_20_8.dat
+catalog_returns_2_8.dat
+catalog_returns_2
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 532M	/data/tpcds-data/catalog_returns_2_8.dat
+catalog_returns_3_8.dat
+catalog_returns_3
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 537M	/data/tpcds-data/catalog_returns_3_8.dat
+catalog_returns_4_8.dat
+catalog_returns_4
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_4_8.dat
+catalog_returns_5_8.dat
+catalog_returns_5
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_5_8.dat
+catalog_returns_6_8.dat
+catalog_returns_6
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_6_8.dat
+catalog_returns_7_8.dat
+catalog_returns_7
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_7_8.dat
+catalog_returns_8_8.dat
+catalog_returns_8
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 538M	/data/tpcds-data/catalog_returns_8_8.dat
+catalog_returns_9_8.dat
+catalog_returns_9
+catalog_returns
+INSERT INTO catalog_returns FORMAT CSV <-- 539M	/data/tpcds-data/catalog_returns_9_8.dat
+catalog_sales_10_8.dat
+catalog_sales_10
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_10_8.dat
+catalog_sales_11_8.dat
+catalog_sales_11
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_11_8.dat
+catalog_sales_12_8.dat
+catalog_sales_12
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_12_8.dat
+catalog_sales_13_8.dat
+catalog_sales_13
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_13_8.dat
+catalog_sales_14_8.dat
+catalog_sales_14
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_14_8.dat
+catalog_sales_15_8.dat
+catalog_sales_15
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_15_8.dat
+catalog_sales_16_8.dat
+catalog_sales_16
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_16_8.dat
+catalog_sales_17_8.dat
+catalog_sales_17
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_17_8.dat
+catalog_sales_18_8.dat
+catalog_sales_18
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_18_8.dat
+catalog_sales_1_8.dat
+catalog_sales_1
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.1G	/data/tpcds-data/catalog_sales_1_8.dat
+catalog_sales_19_8.dat
+catalog_sales_19
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_19_8.dat
+catalog_sales_20_8.dat
+catalog_sales_20
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_20_8.dat
+catalog_sales_2_8.dat
+catalog_sales_2
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_2_8.dat
+catalog_sales_3_8.dat
+catalog_sales_3
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_3_8.dat
+catalog_sales_4_8.dat
+catalog_sales_4
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_4_8.dat
+catalog_sales_5_8.dat
+catalog_sales_5
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_5_8.dat
+catalog_sales_6_8.dat
+catalog_sales_6
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_6_8.dat
+catalog_sales_7_8.dat
+catalog_sales_7
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_7_8.dat
+catalog_sales_8_8.dat
+catalog_sales_8
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_8_8.dat
+catalog_sales_9_8.dat
+catalog_sales_9
+catalog_sales
+INSERT INTO catalog_sales FORMAT CSV <-- 7.2G	/data/tpcds-data/catalog_sales_9_8.dat
+customer_10_8.dat
+customer_10
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_10_8.dat
+customer_11_8.dat
+customer_11
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_11_8.dat
+customer_12_8.dat
+customer_12
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_12_8.dat
+customer_13_8.dat
+customer_13
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_13_8.dat
+customer_14_8.dat
+customer_14
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_14_8.dat
+customer_15_8.dat
+customer_15
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_15_8.dat
+customer_16_8.dat
+customer_16
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_16_8.dat
+customer_17_8.dat
+customer_17
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_17_8.dat
+customer_18_8.dat
+customer_18
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_18_8.dat
+customer_1_8.dat
+customer_1
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_1_8.dat
+customer_19_8.dat
+customer_19
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_19_8.dat
+customer_20_8.dat
+customer_20
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_20_8.dat
+customer_2_8.dat
+customer_2
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_2_8.dat
+customer_3_8.dat
+customer_3
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_3_8.dat
+customer_4_8.dat
+customer_4
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_4_8.dat
+customer_5_8.dat
+customer_5
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_5_8.dat
+customer_6_8.dat
+customer_6
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_6_8.dat
+customer_7_8.dat
+customer_7
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_7_8.dat
+customer_8_8.dat
+customer_8
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_8_8.dat
+customer_9_8.dat
+customer_9
+customer
+INSERT INTO customer FORMAT CSV <-- 26M	/data/tpcds-data/customer_9_8.dat
+customer_demographics_10_8.dat
+customer_demographics_10
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_10_8.dat
+customer_demographics_11_8.dat
+customer_demographics_11
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_11_8.dat
+customer_demographics_12_8.dat
+customer_demographics_12
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_12_8.dat
+customer_demographics_13_8.dat
+customer_demographics_13
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_13_8.dat
+customer_demographics_14_8.dat
+customer_demographics_14
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_14_8.dat
+customer_demographics_15_8.dat
+customer_demographics_15
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_15_8.dat
+customer_demographics_16_8.dat
+customer_demographics_16
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_16_8.dat
+customer_demographics_17_8.dat
+customer_demographics_17
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_17_8.dat
+customer_demographics_18_8.dat
+customer_demographics_18
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_18_8.dat
+customer_demographics_1_8.dat
+customer_demographics_1
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.5M	/data/tpcds-data/customer_demographics_1_8.dat
+customer_demographics_19_8.dat
+customer_demographics_19
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_19_8.dat
+customer_demographics_20_8.dat
+customer_demographics_20
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_20_8.dat
+customer_demographics_2_8.dat
+customer_demographics_2
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.6M	/data/tpcds-data/customer_demographics_2_8.dat
+customer_demographics_3_8.dat
+customer_demographics_3
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.6M	/data/tpcds-data/customer_demographics_3_8.dat
+customer_demographics_4_8.dat
+customer_demographics_4
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.6M	/data/tpcds-data/customer_demographics_4_8.dat
+customer_demographics_5_8.dat
+customer_demographics_5
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_5_8.dat
+customer_demographics_6_8.dat
+customer_demographics_6
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_6_8.dat
+customer_demographics_7_8.dat
+customer_demographics_7
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_7_8.dat
+customer_demographics_8_8.dat
+customer_demographics_8
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_8_8.dat
+customer_demographics_9_8.dat
+customer_demographics_9
+customer_demographics
+INSERT INTO customer_demographics FORMAT CSV <-- 9.8M	/data/tpcds-data/customer_demographics_9_8.dat
+date_dim_1_8.dat
+date_dim_1
+date_dim
+INSERT INTO date_dim FORMAT CSV <-- 9.9M	/data/tpcds-data/date_dim_1_8.dat
+dbgen_version_1_8.dat
+dbgen_version_1
+dbgen_version
+INSERT INTO dbgen_version FORMAT CSV <-- 4.0K	/data/tpcds-data/dbgen_version_1_8.dat
+household_demographics_1_8.dat
+household_demographics_1
+household_demographics
+INSERT INTO household_demographics FORMAT CSV <-- 152K	/data/tpcds-data/household_demographics_1_8.dat
+income_band_1_8.dat
+income_band_1
+income_band
+INSERT INTO income_band FORMAT CSV <-- 4.0K	/data/tpcds-data/income_band_1_8.dat
+inventory_10_8.dat
+inventory_10
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_10_8.dat
+inventory_11_8.dat
+inventory_11
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_11_8.dat
+inventory_12_8.dat
+inventory_12
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_12_8.dat
+inventory_13_8.dat
+inventory_13
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_13_8.dat
+inventory_14_8.dat
+inventory_14
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_14_8.dat
+inventory_15_8.dat
+inventory_15
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_15_8.dat
+inventory_16_8.dat
+inventory_16
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_16_8.dat
+inventory_17_8.dat
+inventory_17
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_17_8.dat
+inventory_18_8.dat
+inventory_18
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_18_8.dat
+inventory_1_8.dat
+inventory_1
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_1_8.dat
+inventory_19_8.dat
+inventory_19
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_19_8.dat
+inventory_20_8.dat
+inventory_20
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_20_8.dat
+inventory_2_8.dat
+inventory_2
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_2_8.dat
+inventory_3_8.dat
+inventory_3
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_3_8.dat
+inventory_4_8.dat
+inventory_4
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_4_8.dat
+inventory_5_8.dat
+inventory_5
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_5_8.dat
+inventory_6_8.dat
+inventory_6
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_6_8.dat
+inventory_7_8.dat
+inventory_7
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_7_8.dat
+inventory_8_8.dat
+inventory_8
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_8_8.dat
+inventory_9_8.dat
+inventory_9
+inventory
+INSERT INTO inventory FORMAT CSV <-- 92M	/data/tpcds-data/inventory_9_8.dat
+item_1_8.dat
+item_1
+item
+INSERT INTO item FORMAT CSV <-- 13M	/data/tpcds-data/item_1_8.dat
+promotion_1_8.dat
+promotion_1
+promotion
+INSERT INTO promotion FORMAT CSV <-- 56K	/data/tpcds-data/promotion_1_8.dat
+reason_1_8.dat
+reason_1
+reason
+INSERT INTO reason FORMAT CSV <-- 4.0K	/data/tpcds-data/reason_1_8.dat
+ship_mode_1_8.dat
+ship_mode_1
+ship_mode
+INSERT INTO ship_mode FORMAT CSV <-- 4.0K	/data/tpcds-data/ship_mode_1_8.dat
+store_1_8.dat
+store_1
+store
+INSERT INTO store FORMAT CSV <-- 56K	/data/tpcds-data/store_1_8.dat
+store_returns_10_8.dat
+store_returns_10
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 827M	/data/tpcds-data/store_returns_10_8.dat
+store_returns_11_8.dat
+store_returns_11
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_11_8.dat
+store_returns_12_8.dat
+store_returns_12
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_12_8.dat
+store_returns_13_8.dat
+store_returns_13
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 827M	/data/tpcds-data/store_returns_13_8.dat
+store_returns_14_8.dat
+store_returns_14
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_14_8.dat
+store_returns_15_8.dat
+store_returns_15
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 827M	/data/tpcds-data/store_returns_15_8.dat
+store_returns_16_8.dat
+store_returns_16
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_16_8.dat
+store_returns_17_8.dat
+store_returns_17
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 829M	/data/tpcds-data/store_returns_17_8.dat
+store_returns_18_8.dat
+store_returns_18
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 834M	/data/tpcds-data/store_returns_18_8.dat
+store_returns_1_8.dat
+store_returns_1
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 818M	/data/tpcds-data/store_returns_1_8.dat
+store_returns_19_8.dat
+store_returns_19
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 833M	/data/tpcds-data/store_returns_19_8.dat
+store_returns_20_8.dat
+store_returns_20
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 833M	/data/tpcds-data/store_returns_20_8.dat
+store_returns_2_8.dat
+store_returns_2
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 822M	/data/tpcds-data/store_returns_2_8.dat
+store_returns_3_8.dat
+store_returns_3
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_3_8.dat
+store_returns_4_8.dat
+store_returns_4
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 827M	/data/tpcds-data/store_returns_4_8.dat
+store_returns_5_8.dat
+store_returns_5
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 827M	/data/tpcds-data/store_returns_5_8.dat
+store_returns_6_8.dat
+store_returns_6
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_6_8.dat
+store_returns_7_8.dat
+store_returns_7
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_7_8.dat
+store_returns_8_8.dat
+store_returns_8
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 826M	/data/tpcds-data/store_returns_8_8.dat
+store_returns_9_8.dat
+store_returns_9
+store_returns
+INSERT INTO store_returns FORMAT CSV <-- 827M	/data/tpcds-data/store_returns_9_8.dat
+store_sales_10_8.dat
+store_sales_10
+store_sales
+INSERT INTO store_sales FORMAT CSV <-- 9.5G	/data/tpcds-data/store_sales_10_8.dat
+store_sales_11_8.dat
+store_sales_11
+store_sales
+INSERT INTO store_sales FORMAT CSV <-- 9.5G	/data/tpcds-data/store_sales_11_8.dat

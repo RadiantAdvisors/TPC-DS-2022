@@ -1,0 +1,799 @@
+query_9.sql
+USE company_db; 
+
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select case when (select count(*) 
+                  from store_sales 
+                  where ss_quantity between 1 and 20) > 25437
+            then (select avg(ss_ext_discount_amt) 
+                  from store_sales 
+                  where ss_quantity between 1 and 20) 
+            else (select avg(ss_net_profit)
+                  from store_sales
+                  where ss_quantity between 1 and 20) end bucket1 ,
+       case when (select count(*)
+                  from store_sales
+                  where ss_quantity between 21 and 40) > 22746
+            then (select avg(ss_ext_discount_amt)
+                  from store_sales
+                  where ss_quantity between 21 and 40) 
+            else (select avg(ss_net_profit)
+                  from store_sales
+                  where ss_quantity between 21 and 40) end bucket2,
+       case when (select count(*)
+                  from store_sales
+                  where ss_quantity between 41 and 60) > 9387
+            then (select avg(ss_ext_discount_amt)
+                  from store_sales
+                  where ss_quantity between 41 and 60)
+            else (select avg(ss_net_profit)
+                  from store_sales
+                  where ss_quantity between 41 and 60) end bucket3,
+       case when (select count(*)
+                  from store_sales
+                  where ss_quantity between 61 and 80) > 10098
+            then (select avg(ss_ext_discount_amt)
+                  from store_sales
+                  where ss_quantity between 61 and 80)
+            else (select avg(ss_net_profit)
+                  from store_sales
+                  where ss_quantity between 61 and 80) end bucket4,
+       case when (select count(*)
+                  from store_sales
+                  where ss_quantity between 81 and 100) > 18213
+            then (select avg(ss_ext_discount_amt)
+                  from store_sales
+                  where ss_quantity between 81 and 100)
+            else (select avg(ss_net_profit)
+                  from store_sales
+                  where ss_quantity between 81 and 100) end bucket5
+from reason
+where r_reason_sk = 1
+;
+
+
+
+39.750248545015104	115.52760433103113	191.2357754327911	266.9879970708077	342.72033366287087
+39.750248545015104	115.52760433103113	191.2357754327911	266.9879970708077	342.72033366287087
+query_21.sql
+USE company_db; 
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  *
+ from(select w_warehouse_name
+            ,i_item_id
+            ,sum(case when (cast(d_date as date) < cast ('1998-04-08' as date))
+	                then inv_quantity_on_hand 
+                      else 0 end) as inv_before
+            ,sum(case when (cast(d_date as date) >= cast ('1998-04-08' as date))
+                      then inv_quantity_on_hand 
+                      else 0 end) as inv_after
+   from company_db.inventory
+       ,company_db.warehouse
+       ,company_db.item
+       ,company_db.date_dim
+   where i_current_price between 0.99 and 1.49
+     and i_item_sk          = inv_item_sk
+     and inv_warehouse_sk   = w_warehouse_sk
+     and inv_date_sk    = d_date_sk
+     and d_date between (cast ('1998-04-08' as date) - INTERVAL 30 day)
+                    and (cast ('1998-04-08' as date) + INTERVAL 30 day)
+   group by w_warehouse_name, i_item_id) x
+ where (case when inv_before > 0 
+             then inv_after / inv_before 
+             else null
+             end) between 2.0/3.0 and 3.0/2.0
+ order by w_warehouse_name
+         ,i_item_id
+ LIMIT 100;
+
+
+
+Bad cards must make.	AAAAAAAAAAFLAAAA	5764	7308
+Bad cards must make.	AAAAAAAAAAIIAAAA	10476	8556
+Bad cards must make.	AAAAAAAAAAOCAAAA	7468	9908
+Bad cards must make.	AAAAAAAAABDHAAAA	9644	9832
+Bad cards must make.	AAAAAAAAABIHAAAA	7672	5252
+Bad cards must make.	AAAAAAAAABLFAAAA	7120	5944
+Bad cards must make.	AAAAAAAAABPEAAAA	8012	6760
+Bad cards must make.	AAAAAAAAACGLAAAA	9548	11524
+Bad cards must make.	AAAAAAAAACJIAAAA	8952	11464
+Bad cards must make.	AAAAAAAAACKCAAAA	7984	10796
+Bad cards must make.	AAAAAAAAACLGAAAA	9980	9232
+Bad cards must make.	AAAAAAAAADAFAAAA	7792	11668
+Bad cards must make.	AAAAAAAAADIJAAAA	5804	6372
+Bad cards must make.	AAAAAAAAADNKAAAA	9472	12676
+Bad cards must make.	AAAAAAAAAEBFAAAA	9684	11836
+Bad cards must make.	AAAAAAAAAEFBAAAA	6916	9088
+Bad cards must make.	AAAAAAAAAEMAAAAA	8524	6860
+Bad cards must make.	AAAAAAAAAEOCAAAA	6216	6264
+Bad cards must make.	AAAAAAAAAFADAAAA	8760	9540
+Bad cards must make.	AAAAAAAAAFGJAAAA	7516	8448
+Bad cards must make.	AAAAAAAAAFJLAAAA	3728	5204
+Bad cards must make.	AAAAAAAAAFKHAAAA	9556	7632
+Bad cards must make.	AAAAAAAAAGIDAAAA	6896	9768
+Bad cards must make.	AAAAAAAAAGLFAAAA	6156	8684
+Bad cards must make.	AAAAAAAAAHDEAAAA	7372	5816
+Bad cards must make.	AAAAAAAAAHHAAAAA	9708	11024
+Bad cards must make.	AAAAAAAAAHJBAAAA	8816	8152
+Bad cards must make.	AAAAAAAAAHJHAAAA	8392	7236
+Bad cards must make.	AAAAAAAAAHNCAAAA	7660	11192
+Bad cards must make.	AAAAAAAAAHOEAAAA	10040	10492
+Bad cards must make.	AAAAAAAAAICKAAAA	12140	8808
+Bad cards must make.	AAAAAAAAAIHLAAAA	8984	8396
+Bad cards must make.	AAAAAAAAAILJAAAA	11692	9252
+Bad cards must make.	AAAAAAAAAIPIAAAA	14908	11384
+Bad cards must make.	AAAAAAAAAJACAAAA	8152	9076
+Bad cards must make.	AAAAAAAAAJALAAAA	12176	14272
+Bad cards must make.	AAAAAAAAAJBAAAAA	5640	4760
+Bad cards must make.	AAAAAAAAAJCAAAAA	7656	7264
+Bad cards must make.	AAAAAAAAAJCIAAAA	6736	7392
+Bad cards must make.	AAAAAAAAAJEDAAAA	11104	11104
+Bad cards must make.	AAAAAAAAAJFIAAAA	7512	10368
+Bad cards must make.	AAAAAAAAAJILAAAA	8540	6728
+Bad cards must make.	AAAAAAAAAJKBAAAA	10520	13080
+Bad cards must make.	AAAAAAAAAJMKAAAA	8564	9012
+Bad cards must make.	AAAAAAAAAJNEAAAA	8972	6364
+Bad cards must make.	AAAAAAAAAKAAAAAA	8096	10808
+Bad cards must make.	AAAAAAAAAKAHAAAA	6668	8980
+Bad cards must make.	AAAAAAAAAKDHAAAA	7568	7976
+Bad cards must make.	AAAAAAAAAKLKAAAA	8452	9824
+Bad cards must make.	AAAAAAAAAKMHAAAA	8224	7296
+Bad cards must make.	AAAAAAAAALCEAAAA	7912	9000
+Bad cards must make.	AAAAAAAAALECAAAA	8604	9724
+Bad cards must make.	AAAAAAAAALPFAAAA	9012	7164
+Bad cards must make.	AAAAAAAAAMALAAAA	8992	9420
+Bad cards must make.	AAAAAAAAAMBEAAAA	8724	8748
+Bad cards must make.	AAAAAAAAAMBGAAAA	14412	14692
+Bad cards must make.	AAAAAAAAAMBKAAAA	9832	10088
+Bad cards must make.	AAAAAAAAAMFLAAAA	8544	12336
+Bad cards must make.	AAAAAAAAANAJAAAA	9220	7248
+Bad cards must make.	AAAAAAAAANBIAAAA	8724	8156
+Bad cards must make.	AAAAAAAAANLFAAAA	5540	7236
+Bad cards must make.	AAAAAAAAANPGAAAA	9100	10700
+Bad cards must make.	AAAAAAAAAOAGAAAA	6992	7128
+Bad cards must make.	AAAAAAAAAOFJAAAA	5900	8068
+Bad cards must make.	AAAAAAAAAOIBAAAA	8944	9124
+Bad cards must make.	AAAAAAAAAOIHAAAA	7664	7344
+Bad cards must make.	AAAAAAAAAOKKAAAA	8652	10388
+Bad cards must make.	AAAAAAAAAOLEAAAA	7028	9676
+Bad cards must make.	AAAAAAAAAPLAAAAA	9348	8096
+Bad cards must make.	AAAAAAAAAPLDAAAA	9044	7716
+Bad cards must make.	AAAAAAAABAEIAAAA	10220	9408
+Bad cards must make.	AAAAAAAABBIDAAAA	8172	10952
+Bad cards must make.	AAAAAAAABCMKAAAA	8088	10396
+Bad cards must make.	AAAAAAAABCNJAAAA	8368	9408
+Bad cards must make.	AAAAAAAABDBLAAAA	8224	8720
+Bad cards must make.	AAAAAAAABDCEAAAA	6568	8688
+Bad cards must make.	AAAAAAAABDJAAAAA	9568	12668
+Bad cards must make.	AAAAAAAABEFDAAAA	8424	9452
+Bad cards must make.	AAAAAAAABFCCAAAA	6944	8592
+Bad cards must make.	AAAAAAAABFEGAAAA	9920	10764
+Bad cards must make.	AAAAAAAABFGEAAAA	8528	9944
+Bad cards must make.	AAAAAAAABFILAAAA	9008	11460
+Bad cards must make.	AAAAAAAABGJGAAAA	8700	10032
+Bad cards must make.	AAAAAAAABHPCAAAA	10436	12424
+Bad cards must make.	AAAAAAAABIAHAAAA	9228	8348
+Bad cards must make.	AAAAAAAABIJBAAAA	8692	12096
+Bad cards must make.	AAAAAAAABILIAAAA	7524	9040
+Bad cards must make.	AAAAAAAABKFAAAAA	12776	11744
+Bad cards must make.	AAAAAAAABKMCAAAA	10348	7208
+Bad cards must make.	AAAAAAAABLDEAAAA	8488	8472
+Bad cards must make.	AAAAAAAABLIFAAAA	7296	8664
+Bad cards must make.	AAAAAAAABMMJAAAA	9036	7176
+Bad cards must make.	AAAAAAAABNHBAAAA	12176	11160
+Bad cards must make.	AAAAAAAABNHKAAAA	7428	9908
+Bad cards must make.	AAAAAAAABNIDAAAA	8312	7144
+Bad cards must make.	AAAAAAAABNLAAAAA	9280	11864
+Bad cards must make.	AAAAAAAABNLDAAAA	7600	9592
+Bad cards must make.	AAAAAAAABNMCAAAA	6780	9488
+Bad cards must make.	AAAAAAAABOHGAAAA	10460	8992
+Bad cards must make.	AAAAAAAABOMBAAAA	6996	8820
+query_22.sql
+USE company_db; 
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  i_product_name
+             ,i_brand
+             ,i_class
+             ,i_category
+             ,avg(inv_quantity_on_hand) qoh
+       from company_db.inventory
+           ,company_db.date_dim
+           ,company_db.item
+       where inv_date_sk=d_date_sk
+              and inv_item_sk=i_item_sk
+              and d_month_seq between 1212 and 1212 + 11
+       group by rollup(i_product_name
+                       ,i_brand
+                       ,i_class
+                       ,i_category)
+order by qoh, i_product_name, i_brand, i_class, i_category
+LIMIT 100;
+
+
+
+antiableesebarought	exportiexporti #2	toddlers	Children	436.8732876712329
+antiableesebarought	exportiexporti #2	toddlers	\N	436.8732876712329
+antiableesebarought	exportiexporti #2	\N	\N	436.8732876712329
+antiableesebarought	\N	\N	\N	436.8732876712329
+oughtablebarought	namelessmaxi #2	romance	Books	442.16438356164383
+oughtablebarought	namelessmaxi #2	romance	\N	442.16438356164383
+oughtablebarought	namelessmaxi #2	\N	\N	442.16438356164383
+oughtablebarought	\N	\N	\N	442.16438356164383
+oughtpribarantiought	exportiedu pack #2	kids	Shoes	442.61872909698997
+oughtpribarantiought	exportiedu pack #2	kids	\N	442.61872909698997
+oughtpribarantiought	exportiedu pack #2	\N	\N	442.61872909698997
+oughtpribarantiought	\N	\N	\N	442.61872909698997
+n stn stprioughtpri	univamalgamalg #1	memory	Electronics	442.8333333333333
+n stn stprioughtpri	univamalgamalg #1	memory	\N	442.8333333333333
+n stn stprioughtpri	univamalgamalg #1	\N	\N	442.8333333333333
+n stn stprioughtpri	\N	\N	\N	442.8333333333333
+priantin stationable	amalgamalg #2	dresses	Women	442.8936877076412
+priantin stationable	amalgamalg #2	dresses	\N	442.8936877076412
+priantin stationable	amalgamalg #2	\N	\N	442.8936877076412
+priantin stationable	\N	\N	\N	442.8936877076412
+n stpricallyableable	edu packamalgamalg #13	automotive	Electronics	444.335593220339
+n stpricallyableable	edu packamalgamalg #13	automotive	\N	444.335593220339
+n stpricallyableable	edu packamalgamalg #13	\N	\N	444.335593220339
+n stpricallyableable	\N	\N	\N	444.335593220339
+priantieseoughtese	importomaxi #4	guns	Sports	444.6644736842105
+priantieseoughtese	importomaxi #4	guns	\N	444.6644736842105
+priantieseoughtese	importomaxi #4	\N	\N	444.6644736842105
+priantieseoughtese	\N	\N	\N	444.6644736842105
+prin stn stationought	scholarnameless #4	fitness	Sports	444.7109634551495
+prin stn stationought	scholarnameless #4	fitness	\N	444.7109634551495
+prin stn stationought	scholarnameless #4	\N	\N	444.7109634551495
+prin stn stationought	\N	\N	\N	444.7109634551495
+prieingpricallypri	importoscholar #2	country	Music	445.0506756756757
+prieingpricallypri	importoscholar #2	country	\N	445.0506756756757
+prieingpricallypri	importoscholar #2	\N	\N	445.0506756756757
+prieingpricallypri	\N	\N	\N	445.0506756756757
+antiationeseeing	amalgexporti #2	newborn	Children	446.11486486486484
+antiationeseeing	amalgexporti #2	newborn	\N	446.11486486486484
+antiationeseeing	amalgexporti #2	\N	\N	446.11486486486484
+antiationeseeing	\N	\N	\N	446.11486486486484
+anticallyationable	edu packimporto #2	sports-apparel	Men	446.53721682847896
+anticallyationable	edu packimporto #2	sports-apparel	\N	446.53721682847896
+anticallyationable	edu packimporto #2	\N	\N	446.53721682847896
+anticallyationable	\N	\N	\N	446.53721682847896
+n stcallyprin stought	exportiexporti #2	toddlers	Children	446.63576158940396
+n stcallyprin stought	exportiexporti #2	toddlers	\N	446.63576158940396
+n stcallyprin stought	exportiexporti #2	\N	\N	446.63576158940396
+n stcallyprin stought	\N	\N	\N	446.63576158940396
+ationbarcallyeseable	importoexporti #2	infants	Children	446.748322147651
+ationbarcallyeseable	importoexporti #2	infants	\N	446.748322147651
+ationbarcallyeseable	importoexporti #2	\N	\N	446.748322147651
+ationbarcallyeseable	\N	\N	\N	446.748322147651
+ationeseoughteingought	exportiimporto #2	pants	Men	447.2207357859532
+ationeseoughteingought	exportiimporto #2	pants	\N	447.2207357859532
+ationeseoughteingought	exportiimporto #2	\N	\N	447.2207357859532
+ationeseoughteingought	\N	\N	\N	447.2207357859532
+antiationbaranti	scholarunivamalg #10	karoke	Electronics	447.9799331103679
+antiationbaranti	scholarunivamalg #10	karoke	\N	447.9799331103679
+antiationbaranti	scholarunivamalg #10	\N	\N	447.9799331103679
+antiationbaranti	\N	\N	\N	447.9799331103679
+oughteingablecallyese	brandbrand #2	decor	Home	448.2159468438538
+oughteingablecallyese	brandbrand #2	decor	\N	448.2159468438538
+oughteingablecallyese	brandbrand #2	\N	\N	448.2159468438538
+oughteingablecallyese	\N	\N	\N	448.2159468438538
+anticallyableableese	amalgamalg #2	dresses	Women	448.222602739726
+anticallyableableese	amalgamalg #2	dresses	\N	448.222602739726
+anticallyableableese	amalgamalg #2	\N	\N	448.222602739726
+anticallyableableese	\N	\N	\N	448.222602739726
+ationn stationanti	univnameless #8	flatware	Home	448.3344709897611
+ationn stationanti	univnameless #8	flatware	\N	448.3344709897611
+ationn stationanti	univnameless #8	\N	\N	448.3344709897611
+ationn stationanti	\N	\N	\N	448.3344709897611
+priationbarbarese	corpcorp #2	rings	Jewelry	448.49484536082474
+priationbarbarese	corpcorp #2	rings	\N	448.49484536082474
+priationbarbarese	corpcorp #2	\N	\N	448.49484536082474
+priationbarbarese	\N	\N	\N	448.49484536082474
+ationpriesepripri	amalgunivamalg #16	cameras	Electronics	448.7940199335548
+ationpriesepripri	amalgunivamalg #16	cameras	\N	448.7940199335548
+ationpriesepripri	amalgunivamalg #16	\N	\N	448.7940199335548
+ationpriesepripri	\N	\N	\N	448.7940199335548
+n stesecallyeingpri	exportimaxi #10	sailing	Sports	448.9966216216216
+n stesecallyeingpri	exportimaxi #10	sailing	\N	448.9966216216216
+n stesecallyeingpri	exportimaxi #10	\N	\N	448.9966216216216
+n stesecallyeingpri	\N	\N	\N	448.9966216216216
+antiableantin st	scholarnameless #6	fitness	Sports	449.1212121212121
+antiableantin st	scholarnameless #6	fitness	\N	449.1212121212121
+antiableantin st	scholarnameless #6	\N	\N	449.1212121212121
+antiableantin st	\N	\N	\N	449.1212121212121
+n stablecallycallyable	edu packedu pack #2	athletic	Shoes	449.2677966101695
+n stablecallycallyable	edu packedu pack #2	athletic	\N	449.2677966101695
+n stablecallycallyable	edu packedu pack #2	\N	\N	449.2677966101695
+n stablecallycallyable	\N	\N	\N	449.2677966101695
+antiantieseeseable	amalgunivamalg #12	cooking	Books	449.6323024054983
+antiantieseeseable	amalgunivamalg #12	cooking	\N	449.6323024054983
+antiantieseeseable	amalgunivamalg #12	\N	\N	449.6323024054983
+antiantieseeseable	\N	\N	\N	449.6323024054983
+ationbareseoughtese	edu packscholar #2	classical	Music	449.6387959866221
+ationbareseoughtese	edu packscholar #2	classical	\N	449.6387959866221
+ationbareseoughtese	edu packscholar #2	\N	\N	449.6387959866221
+ationbareseoughtese	\N	\N	\N	449.6387959866221
+query_28.sql
+USE company_db; 
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  *
+from (select avg(ss_list_price) B1_LP
+            ,count(ss_list_price) B1_CNT
+            ,count(distinct ss_list_price) B1_CNTD
+      from store_sales
+      where ss_quantity between 0 and 5
+        and (ss_list_price between 11 and 11+10 
+             or ss_coupon_amt between 460 and 460+1000
+             or ss_wholesale_cost between 14 and 14+20)) B1,
+     (select avg(ss_list_price) B2_LP
+            ,count(ss_list_price) B2_CNT
+            ,count(distinct ss_list_price) B2_CNTD
+      from store_sales
+      where ss_quantity between 6 and 10
+        and (ss_list_price between 91 and 91+10
+          or ss_coupon_amt between 1430 and 1430+1000
+          or ss_wholesale_cost between 32 and 32+20)) B2,
+     (select avg(ss_list_price) B3_LP
+            ,count(ss_list_price) B3_CNT
+            ,count(distinct ss_list_price) B3_CNTD
+      from store_sales
+      where ss_quantity between 11 and 15
+        and (ss_list_price between 66 and 66+10
+          or ss_coupon_amt between 920 and 920+1000
+          or ss_wholesale_cost between 4 and 4+20)) B3,
+     (select avg(ss_list_price) B4_LP
+            ,count(ss_list_price) B4_CNT
+            ,count(distinct ss_list_price) B4_CNTD
+      from store_sales
+      where ss_quantity between 16 and 20
+        and (ss_list_price between 142 and 142+10
+          or ss_coupon_amt between 3054 and 3054+1000
+          or ss_wholesale_cost between 80 and 80+20)) B4,
+     (select avg(ss_list_price) B5_LP
+            ,count(ss_list_price) B5_CNT
+            ,count(distinct ss_list_price) B5_CNTD
+      from store_sales
+      where ss_quantity between 21 and 25
+        and (ss_list_price between 135 and 135+10
+          or ss_coupon_amt between 14180 and 14180+1000
+          or ss_wholesale_cost between 38 and 38+20)) B5,
+     (select avg(ss_list_price) B6_LP
+            ,count(ss_list_price) B6_CNT
+            ,count(distinct ss_list_price) B6_CNTD
+      from store_sales
+      where ss_quantity between 26 and 30
+        and (ss_list_price between 28 and 28+10
+          or ss_coupon_amt between 2513 and 2513+1000
+          or ss_wholesale_cost between 42 and 42+20)) B6
+LIMIT 100;
+
+
+
+31.970084243058075	17137891	14787	70.84710156400413	17555645	8699	37.10486706239998	18686184	17614	135.49132668690856	14007121	11836	82.36722635865472	15817167	8695	67.19062988364693	18321584	16548
+query_62.sql
+USE company_db; 
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  
+   substr(w_warehouse_name,1,20)
+  ,sm_type
+  ,web_name
+  ,sum(case when (ws_ship_date_sk - ws_sold_date_sk <= 30 ) then 1 else 0 end)  as "30 days" 
+  ,sum(case when (ws_ship_date_sk - ws_sold_date_sk > 30) and 
+                 (ws_ship_date_sk - ws_sold_date_sk <= 60) then 1 else 0 end )  as "31-60 days" 
+  ,sum(case when (ws_ship_date_sk - ws_sold_date_sk > 60) and 
+                 (ws_ship_date_sk - ws_sold_date_sk <= 90) then 1 else 0 end)  as "61-90 days" 
+  ,sum(case when (ws_ship_date_sk - ws_sold_date_sk > 90) and
+                 (ws_ship_date_sk - ws_sold_date_sk <= 120) then 1 else 0 end)  as "91-120 days" 
+  ,sum(case when (ws_ship_date_sk - ws_sold_date_sk  > 120) then 1 else 0 end)  as ">120 days" 
+from
+   company_db.web_sales
+  ,company_db.warehouse
+  ,company_db.ship_mode
+  ,company_db.web_site
+  ,company_db.date_dim
+where
+    d_month_seq between 1212 and 1212 + 11
+and ws_ship_date_sk   = d_date_sk
+and ws_warehouse_sk   = w_warehouse_sk
+and ws_ship_mode_sk   = sm_ship_mode_sk
+and ws_web_site_sk    = web_site_sk
+group by
+   substr(w_warehouse_name,1,20)
+  ,sm_type
+  ,web_name
+order by substr(w_warehouse_name,1,20)
+        ,sm_type
+       ,web_name
+LIMIT 100;
+
+
+
+Bad cards must make.	EXPRESS	site_0	359904	354768	359676	355688	0
+Bad cards must make.	EXPRESS	site_1	361012	355000	358524	355380	0
+Bad cards must make.	EXPRESS	site_2	350544	366748	351524	367408	0
+Bad cards must make.	EXPRESS	site_3	362336	352740	360592	355528	0
+Bad cards must make.	EXPRESS	site_4	353660	364692	352508	363836	0
+Bad cards must make.	EXPRESS	site_5	357932	358232	359684	358428	0
+Bad cards must make.	EXPRESS	site_6	244596	233612	244132	232728	0
+Bad cards must make.	LIBRARY	site_0	274976	263404	275116	264200	0
+Bad cards must make.	LIBRARY	site_1	266576	270708	265804	272004	0
+Bad cards must make.	LIBRARY	site_2	274136	262828	275772	261676	0
+Bad cards must make.	LIBRARY	site_3	266784	270512	268080	271104	0
+Bad cards must make.	LIBRARY	site_4	268180	268796	266264	269028	0
+Bad cards must make.	LIBRARY	site_5	270304	266804	270640	266868	0
+Bad cards must make.	LIBRARY	site_6	170732	187056	171352	188252	0
+Bad cards must make.	NEXT DAY	site_0	362916	351992	363032	351132	0
+Bad cards must make.	NEXT DAY	site_1	353788	360504	354128	362132	0
+Bad cards must make.	NEXT DAY	site_2	366412	351764	368036	352296	0
+Bad cards must make.	NEXT DAY	site_3	358360	358392	357052	360172	0
+Bad cards must make.	NEXT DAY	site_4	356680	359900	358156	363728	0
+Bad cards must make.	NEXT DAY	site_5	361668	353944	360720	357228	0
+Bad cards must make.	NEXT DAY	site_6	229040	247308	231016	248768	0
+Bad cards must make.	OVERNIGHT	site_0	262716	274772	263404	276732	0
+Bad cards must make.	OVERNIGHT	site_1	271440	267744	270764	267852	0
+Bad cards must make.	OVERNIGHT	site_2	268964	266288	268996	267120	0
+Bad cards must make.	OVERNIGHT	site_3	267420	271500	265372	272220	0
+Bad cards must make.	OVERNIGHT	site_4	276292	261436	277724	262576	0
+Bad cards must make.	OVERNIGHT	site_5	264800	270536	265992	271800	0
+Bad cards must make.	OVERNIGHT	site_6	181312	177172	180928	176268	0
+Bad cards must make.	REGULAR	site_0	260136	276364	262284	276612	0
+Bad cards must make.	REGULAR	site_1	270324	265392	271248	267948	0
+Bad cards must make.	REGULAR	site_2	267764	269692	265928	269432	0
+Bad cards must make.	REGULAR	site_3	265980	270552	267936	270348	0
+Bad cards must make.	REGULAR	site_4	275996	262372	275492	262632	0
+Bad cards must make.	REGULAR	site_5	265288	270384	267544	271356	0
+Bad cards must make.	REGULAR	site_6	182568	174440	183848	175468	0
+Bad cards must make.	TWO DAY	site_0	270832	268536	271008	266712	0
+Bad cards must make.	TWO DAY	site_1	270080	266848	269812	267824	0
+Bad cards must make.	TWO DAY	site_2	264076	276632	261124	273792	0
+Bad cards must make.	TWO DAY	site_3	270192	265588	271848	267044	0
+Bad cards must make.	TWO DAY	site_4	262916	272864	262168	276116	0
+Bad cards must make.	TWO DAY	site_5	268664	270972	269324	267384	0
+Bad cards must make.	TWO DAY	site_6	184768	173956	184728	173992	0
+Conventional childr	EXPRESS	site_0	357796	356740	359208	359320	0
+Conventional childr	EXPRESS	site_1	361580	355164	363340	354288	0
+Conventional childr	EXPRESS	site_2	355544	363088	356244	360996	0
+Conventional childr	EXPRESS	site_3	366556	352096	365296	348928	0
+Conventional childr	EXPRESS	site_4	354176	359748	355416	362532	0
+Conventional childr	EXPRESS	site_5	359396	354944	361940	356336	0
+Conventional childr	EXPRESS	site_6	231900	246096	232208	247104	0
+Conventional childr	LIBRARY	site_0	269808	266448	271152	266056	0
+Conventional childr	LIBRARY	site_1	261012	275864	259960	275972	0
+Conventional childr	LIBRARY	site_2	272076	266196	272268	265432	0
+Conventional childr	LIBRARY	site_3	264152	271796	264968	271792	0
+Conventional childr	LIBRARY	site_4	269788	268908	268088	269820	0
+Conventional childr	LIBRARY	site_5	275520	263984	273848	264264	0
+Conventional childr	LIBRARY	site_6	178904	178916	179300	178928	0
+Conventional childr	NEXT DAY	site_0	361952	355296	360724	353592	0
+Conventional childr	NEXT DAY	site_1	350168	368692	349676	367916	0
+Conventional childr	NEXT DAY	site_2	360468	352928	360472	355812	0
+Conventional childr	NEXT DAY	site_3	354720	362032	356824	362340	0
+Conventional childr	NEXT DAY	site_4	358252	358144	359772	358116	0
+Conventional childr	NEXT DAY	site_5	364548	351640	364108	353248	0
+Conventional childr	NEXT DAY	site_6	238132	236768	240600	237532	0
+Conventional childr	OVERNIGHT	site_0	266016	271036	268052	272348	0
+Conventional childr	OVERNIGHT	site_1	272688	264656	273424	265444	0
+Conventional childr	OVERNIGHT	site_2	268796	267252	268232	268204	0
+Conventional childr	OVERNIGHT	site_3	264604	274744	263056	273460	0
+Conventional childr	OVERNIGHT	site_4	272324	265352	273500	265388	0
+Conventional childr	OVERNIGHT	site_5	262364	276836	263280	276208	0
+Conventional childr	OVERNIGHT	site_6	186036	172364	186528	171304	0
+Conventional childr	REGULAR	site_0	265536	271424	265676	272328	0
+Conventional childr	REGULAR	site_1	274444	262788	276160	263572	0
+Conventional childr	REGULAR	site_2	269544	269608	268040	268608	0
+Conventional childr	REGULAR	site_3	264284	273384	266792	272908	0
+Conventional childr	REGULAR	site_4	273024	266204	271288	263524	0
+Conventional childr	REGULAR	site_5	260360	276268	260604	276776	0
+Conventional childr	REGULAR	site_6	187888	172004	187520	173508	0
+Conventional childr	TWO DAY	site_0	268560	269660	268892	268156	0
+Conventional childr	TWO DAY	site_1	272652	264284	271476	266804	0
+Conventional childr	TWO DAY	site_2	265948	272144	264068	270960	0
+Conventional childr	TWO DAY	site_3	277440	261544	275232	262076	0
+Conventional childr	TWO DAY	site_4	265740	272252	265724	270800	0
+Conventional childr	TWO DAY	site_5	268940	268212	269816	268592	0
+Conventional childr	TWO DAY	site_6	173652	185856	172892	184868	0
+Doors canno	EXPRESS	site_0	357724	355672	358460	357052	0
+Doors canno	EXPRESS	site_1	362352	352856	362904	354480	0
+Doors canno	EXPRESS	site_2	356360	361132	355032	362392	0
+Doors canno	EXPRESS	site_3	365840	349248	367232	350712	0
+Doors canno	EXPRESS	site_4	354512	360800	358052	361460	0
+Doors canno	EXPRESS	site_5	360060	355616	360236	358336	0
+Doors canno	EXPRESS	site_6	231412	246780	229972	248544	0
+Doors canno	LIBRARY	site_0	270696	266708	271980	265760	0
+Doors canno	LIBRARY	site_1	262960	274272	263008	277116	0
+Doors canno	LIBRARY	site_2	272140	264876	272688	267416	0
+Doors canno	LIBRARY	site_3	264904	270504	264796	270136	0
+Doors canno	LIBRARY	site_4	267084	268476	267268	269884	0
+Doors canno	LIBRARY	site_5	273904	261444	273956	264868	0
+Doors canno	LIBRARY	site_6	179724	177264	179744	181036	0
+Doors canno	NEXT DAY	site_0	360764	357728	360896	356568	0
+Doors canno	NEXT DAY	site_1	348332	366668	348328	367536	0
+query_84.sql
+USE company_db; 
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  c_customer_id as customer_id
+       , coalesce(c_last_name,'') || ', ' || coalesce(c_first_name,'') as customername
+ from customer
+     ,customer_address
+     ,customer_demographics
+     ,household_demographics
+     ,income_band
+     ,store_returns
+ where ca_city	        =  'Hopewell'
+   and c_current_addr_sk = ca_address_sk
+   and ib_lower_bound   >=  32287
+   and ib_upper_bound   <=  32287 + 50000
+   and ib_income_band_sk = hd_income_band_sk
+   and cd_demo_sk = c_current_cdemo_sk
+   and hd_demo_sk = c_current_hdemo_sk
+   and sr_cdemo_sk = cd_demo_sk
+ order by c_customer_id
+ LIMIT 100;
+
+
+
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+AAAAAAAAAAAJDDAA	Anderson, Michael
+query_96.sql
+USE company_db; 
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  count(*) 
+from company_db.store_sales
+    ,company_db.household_demographics 
+    ,company_db.time_dim, company_db.store
+where ss_sold_time_sk = time_dim.t_time_sk   
+    and ss_hdemo_sk = household_demographics.hd_demo_sk 
+    and ss_store_sk = s_store_sk
+    and time_dim.t_hour = 8
+    and time_dim.t_minute >= 30
+    and household_demographics.hd_dep_count = 5
+    and store.s_store_name = 'ese'
+order by count(*)
+LIMIT 100;
+
+
+
+835834
+query_99.sql
+USE company_db; 
+
+SET  max_bytes_before_external_group_by = 5000000000, max_bytes_before_external_sort = 5000000000;
+
+select  
+   substr(w_warehouse_name,1,20)
+  ,sm_type
+  ,cc_name
+  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk <= 30 ) then 1 else 0 end)  as "30 days" 
+  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk > 30) and 
+                 (cs_ship_date_sk - cs_sold_date_sk <= 60) then 1 else 0 end )  as "31-60 days" 
+  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk > 60) and 
+                 (cs_ship_date_sk - cs_sold_date_sk <= 90) then 1 else 0 end)  as "61-90 days" 
+  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk > 90) and
+                 (cs_ship_date_sk - cs_sold_date_sk <= 120) then 1 else 0 end)  as "91-120 days" 
+  ,sum(case when (cs_ship_date_sk - cs_sold_date_sk  > 120) then 1 else 0 end)  as ">120 days" 
+from
+   company_db.catalog_sales
+  ,company_db.warehouse
+  ,company_db.ship_mode
+  ,company_db.call_center
+  ,company_db.date_dim
+where
+    d_month_seq between 1212 and 1212 + 11
+and cs_ship_date_sk   = d_date_sk
+and cs_warehouse_sk   = w_warehouse_sk
+and cs_ship_mode_sk   = sm_ship_mode_sk
+and cs_call_center_sk = cc_call_center_sk
+group by
+   substr(w_warehouse_name,1,20)
+  ,sm_type
+  ,cc_name
+order by substr(w_warehouse_name,1,20)
+        ,sm_type
+        ,cc_name
+LIMIT 100;
+
+
+
+Bad cards must make.	EXPRESS	California	986784	1017952	1020680	0	0
+Bad cards must make.	EXPRESS	Mid Atlantic	982640	1019288	1018672	0	0
+Bad cards must make.	EXPRESS	NY Metro	985192	1016712	1017968	0	0
+Bad cards must make.	EXPRESS	North Midwest	984592	1014544	1017824	0	0
+Bad cards must make.	EXPRESS	Pacific Northwest	984472	1020312	1020904	0	0
+Bad cards must make.	LIBRARY	California	736560	765568	768112	0	0
+Bad cards must make.	LIBRARY	Mid Atlantic	741552	766648	764808	0	0
+Bad cards must make.	LIBRARY	NY Metro	741256	762336	769504	0	0
+Bad cards must make.	LIBRARY	North Midwest	741728	765960	766240	0	0
+Bad cards must make.	LIBRARY	Pacific Northwest	737688	765648	766888	0	0
+Bad cards must make.	NEXT DAY	California	987800	1023280	1022456	0	0
+Bad cards must make.	NEXT DAY	Mid Atlantic	981672	1017352	1019936	0	0
+Bad cards must make.	NEXT DAY	NY Metro	988472	1018584	1020464	0	0
+Bad cards must make.	NEXT DAY	North Midwest	986088	1020608	1020744	0	0
+Bad cards must make.	NEXT DAY	Pacific Northwest	988848	1023968	1020272	0	0
+Bad cards must make.	OVERNIGHT	California	739704	758200	767832	0	0
+Bad cards must make.	OVERNIGHT	Mid Atlantic	739120	763608	764768	0	0
+Bad cards must make.	OVERNIGHT	NY Metro	742216	762256	762032	0	0
+Bad cards must make.	OVERNIGHT	North Midwest	737240	762864	765192	0	0
+Bad cards must make.	OVERNIGHT	Pacific Northwest	741920	762536	764400	0	0
+Bad cards must make.	REGULAR	California	740136	763472	768864	0	0
+Bad cards must make.	REGULAR	Mid Atlantic	737264	761928	762960	0	0
+Bad cards must make.	REGULAR	NY Metro	743160	760016	767224	0	0
+Bad cards must make.	REGULAR	North Midwest	744504	763456	766856	0	0
+Bad cards must make.	REGULAR	Pacific Northwest	740864	762632	767784	0	0
+Bad cards must make.	TWO DAY	California	738664	766056	766200	0	0
+Bad cards must make.	TWO DAY	Mid Atlantic	740064	763056	761176	0	0
+Bad cards must make.	TWO DAY	NY Metro	739312	762568	764096	0	0
+Bad cards must make.	TWO DAY	North Midwest	737392	764488	767712	0	0
+Bad cards must make.	TWO DAY	Pacific Northwest	737872	761552	767272	0	0
+Conventional childr	EXPRESS	California	981448	1024216	1018112	0	0
+Conventional childr	EXPRESS	Mid Atlantic	980544	1023440	1022568	0	0
+Conventional childr	EXPRESS	NY Metro	986552	1018600	1017296	0	0
+Conventional childr	EXPRESS	North Midwest	989400	1020672	1021584	0	0
+Conventional childr	EXPRESS	Pacific Northwest	979480	1017376	1021704	0	0
+Conventional childr	LIBRARY	California	736824	762216	768840	0	0
+Conventional childr	LIBRARY	Mid Atlantic	741752	763304	768584	0	0
+Conventional childr	LIBRARY	NY Metro	740416	761752	767968	0	0
+Conventional childr	LIBRARY	North Midwest	737848	766712	766272	0	0
+Conventional childr	LIBRARY	Pacific Northwest	746160	762976	765712	0	0
+Conventional childr	NEXT DAY	California	983240	1019424	1023408	0	0
+Conventional childr	NEXT DAY	Mid Atlantic	983528	1022288	1022640	0	0
+Conventional childr	NEXT DAY	NY Metro	985336	1024936	1021928	0	0
+Conventional childr	NEXT DAY	North Midwest	984824	1019544	1023696	0	0
+Conventional childr	NEXT DAY	Pacific Northwest	982424	1021256	1020208	0	0
+Conventional childr	OVERNIGHT	California	742216	762800	761560	0	0
+Conventional childr	OVERNIGHT	Mid Atlantic	737536	768360	763808	0	0
+Conventional childr	OVERNIGHT	NY Metro	736992	763664	766984	0	0
+Conventional childr	OVERNIGHT	North Midwest	734264	764720	764120	0	0
+Conventional childr	OVERNIGHT	Pacific Northwest	738104	769824	769112	0	0
+Conventional childr	REGULAR	California	740592	764848	771112	0	0
+Conventional childr	REGULAR	Mid Atlantic	740992	765536	764456	0	0
+Conventional childr	REGULAR	NY Metro	737928	759784	765272	0	0
+Conventional childr	REGULAR	North Midwest	737552	763656	769888	0	0
+Conventional childr	REGULAR	Pacific Northwest	735832	766784	766632	0	0
+Conventional childr	TWO DAY	California	736344	765744	763080	0	0
+Conventional childr	TWO DAY	Mid Atlantic	738544	767024	763920	0	0
+Conventional childr	TWO DAY	NY Metro	739080	762552	766792	0	0
+Conventional childr	TWO DAY	North Midwest	737488	762128	764448	0	0
+Conventional childr	TWO DAY	Pacific Northwest	739176	764600	762792	0	0
+Doors canno	EXPRESS	California	984144	1017880	1020000	0	0
+Doors canno	EXPRESS	Mid Atlantic	984096	1019168	1023480	0	0
+Doors canno	EXPRESS	NY Metro	986136	1022560	1024440	0	0
+Doors canno	EXPRESS	North Midwest	985176	1008024	1023864	0	0
+Doors canno	EXPRESS	Pacific Northwest	985632	1022296	1020912	0	0
+Doors canno	LIBRARY	California	741792	759336	764160	0	0
+Doors canno	LIBRARY	Mid Atlantic	739680	763832	763488	0	0
+Doors canno	LIBRARY	NY Metro	737504	765280	764584	0	0
+Doors canno	LIBRARY	North Midwest	739376	760544	767304	0	0
+Doors canno	LIBRARY	Pacific Northwest	740224	763648	766528	0	0
+Doors canno	NEXT DAY	California	990896	1018024	1019216	0	0
+Doors canno	NEXT DAY	Mid Atlantic	985752	1018360	1020152	0	0
+Doors canno	NEXT DAY	NY Metro	987968	1021640	1022928	0	0
+Doors canno	NEXT DAY	North Midwest	983944	1016840	1017400	0	0
+Doors canno	NEXT DAY	Pacific Northwest	985272	1022976	1019400	0	0
+Doors canno	OVERNIGHT	California	739976	765048	767120	0	0
+Doors canno	OVERNIGHT	Mid Atlantic	740888	765296	768712	0	0
+Doors canno	OVERNIGHT	NY Metro	737992	766720	763920	0	0
+Doors canno	OVERNIGHT	North Midwest	737208	761776	769776	0	0
+Doors canno	OVERNIGHT	Pacific Northwest	739760	761552	764216	0	0
+Doors canno	REGULAR	California	740120	764760	765648	0	0
+Doors canno	REGULAR	Mid Atlantic	735248	763672	766296	0	0
+Doors canno	REGULAR	NY Metro	740456	762536	760824	0	0
+Doors canno	REGULAR	North Midwest	743512	764632	766440	0	0
+Doors canno	REGULAR	Pacific Northwest	737328	761112	769952	0	0
+Doors canno	TWO DAY	California	736520	765032	770424	0	0
+Doors canno	TWO DAY	Mid Atlantic	737384	767520	765456	0	0
+Doors canno	TWO DAY	NY Metro	738392	759696	769200	0	0
+Doors canno	TWO DAY	North Midwest	738280	760272	766568	0	0
+Doors canno	TWO DAY	Pacific Northwest	741688	765216	767224	0	0
+Important issues liv	EXPRESS	California	987912	1019920	1021256	0	0
+Important issues liv	EXPRESS	Mid Atlantic	985952	1017208	1023072	0	0
+Important issues liv	EXPRESS	NY Metro	981640	1018984	1023312	0	0
+Important issues liv	EXPRESS	North Midwest	985088	1022496	1018128	0	0
+Important issues liv	EXPRESS	Pacific Northwest	982760	1020080	1015200	0	0
+Important issues liv	LIBRARY	California	739672	766560	763264	0	0
+Important issues liv	LIBRARY	Mid Atlantic	738016	765480	766496	0	0
+Important issues liv	LIBRARY	NY Metro	739432	769000	764008	0	0
+Important issues liv	LIBRARY	North Midwest	740944	765016	766736	0	0
+Important issues liv	LIBRARY	Pacific Northwest	735088	766056	764512	0	0

@@ -1,0 +1,194 @@
+echo "query_9.sql" >> /data/ch-bm99-1run.log
++ echo query_9.sql
+cat /data/tpc-ds-affinity/queries/query_9.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_9.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+7.588
+echo "query_21.sql" >> /data/ch-bm99-1run.log
++ echo query_21.sql
+cat /data/tpc-ds-affinity/queries/query_21.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_21.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+7.514
+echo "query_22.sql" >> /data/ch-bm99-1run.log
++ echo query_22.sql
+cat /data/tpc-ds-affinity/queries/query_22.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_22.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.000
+2.659
+echo "query_28.sql" >> /data/ch-bm99-1run.log
++ echo query_28.sql
+cat /data/tpc-ds-affinity/queries/query_28.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_28.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+5.844
+echo "query_62.sql" >> /data/ch-bm99-1run.log
++ echo query_62.sql
+cat /data/tpc-ds-affinity/queries/query_62.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_62.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+195.969
+echo "query_84.sql" >> /data/ch-bm99-1run.log
++ echo query_84.sql
+cat /data/tpc-ds-affinity/queries/query_84.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_84.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+16.880
+echo "query_96.sql" >> /data/ch-bm99-1run.log
++ echo query_96.sql
+cat /data/tpc-ds-affinity/queries/query_96.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_96.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+11.040
+echo "query_99.sql" >> /data/ch-bm99-1run.log
++ echo query_99.sql
+cat /data/tpc-ds-affinity/queries/query_99.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-1run.log
++ cat /data/tpc-ds-affinity/queries/query_99.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+367.760
+
+echo "query_9.sql" >> /data/ch-bm99-2run.log
++ echo query_9.sql
+cat /data/tpc-ds-affinity/queries/query_9.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ clickhouse-client -mn -d company_db -t --echo
++ cat /data/tpc-ds-affinity/queries/query_9.sql
+0.001
+0.001
+7.445
+echo "query_21.sql" >> /data/ch-bm99-2run.log
++ echo query_21.sql
+cat /data/tpc-ds-affinity/queries/query_21.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_21.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+6.721
+echo "query_22.sql" >> /data/ch-bm99-2run.log
++ echo query_22.sql
+cat /data/tpc-ds-affinity/queries/query_22.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_22.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.000
+2.581
+echo "query_28.sql" >> /data/ch-bm99-2run.log
++ echo query_28.sql
+cat /data/tpc-ds-affinity/queries/query_28.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_28.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.000
+5.894
+echo "query_62.sql" >> /data/ch-bm99-2run.log
++ echo query_62.sql
+cat /data/tpc-ds-affinity/queries/query_62.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_62.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+191.505
+echo "query_84.sql" >> /data/ch-bm99-2run.log
++ echo query_84.sql
+cat /data/tpc-ds-affinity/queries/query_84.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_84.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+18.959
+echo "query_96.sql" >> /data/ch-bm99-2run.log
++ echo query_96.sql
+cat /data/tpc-ds-affinity/queries/query_96.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_96.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+10.733
+echo "query_99.sql" >> /data/ch-bm99-2run.log
++ echo query_99.sql
+cat /data/tpc-ds-affinity/queries/query_99.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-2run.log
++ cat /data/tpc-ds-affinity/queries/query_99.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+361.651
+
+echo "query_9.sql" >> /data/ch-bm99-3run.log
++ echo query_9.sql
+cat /data/tpc-ds-affinity/queries/query_9.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_9.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+7.741
+echo "query_21.sql" >> /data/ch-bm99-3run.log
++ echo query_21.sql
+cat /data/tpc-ds-affinity/queries/query_21.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_21.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+7.069
+echo "query_22.sql" >> /data/ch-bm99-3run.log
++ echo query_22.sql
+cat /data/tpc-ds-affinity/queries/query_22.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_22.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.000
+2.584
+echo "query_28.sql" >> /data/ch-bm99-3run.log
++ echo query_28.sql
+cat /data/tpc-ds-affinity/queries/query_28.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_28.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+6.011
+echo "query_62.sql" >> /data/ch-bm99-3run.log
++ echo query_62.sql
+cat /data/tpc-ds-affinity/queries/query_62.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_62.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.000
+183.119
+echo "query_84.sql" >> /data/ch-bm99-3run.log
++ echo query_84.sql
+cat /data/tpc-ds-affinity/queries/query_84.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_84.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+25.566
+echo "query_96.sql" >> /data/ch-bm99-3run.log
++ echo query_96.sql
+cat /data/tpc-ds-affinity/queries/query_96.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_96.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.000
+10.894
+echo "query_99.sql" >> /data/ch-bm99-3run.log
++ echo query_99.sql
+cat /data/tpc-ds-affinity/queries/query_99.sql|clickhouse-client -mn -d company_db -t --echo >> /data/ch-bm99-3run.log
++ cat /data/tpc-ds-affinity/queries/query_99.sql
++ clickhouse-client -mn -d company_db -t --echo
+0.001
+0.001
+368.263
