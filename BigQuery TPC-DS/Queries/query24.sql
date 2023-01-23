@@ -1,0 +1,54 @@
+-- start query 92 in stream 0 using template query24.tpl
+with ssales as
+(select c_last_name
+      ,c_first_name
+      ,s_store_name
+      ,ca_state
+      ,s_state
+      ,i_color
+      ,i_current_price
+      ,i_manager_id
+      ,i_units
+      ,i_size
+      ,sum(ss_net_profit) netpaid
+from tpcds_2t_baseline.store_sales
+    ,tpcds_2t_baseline.store_returns
+    ,tpcds_2t_baseline.store
+    ,tpcds_2t_baseline.item
+    ,tpcds_2t_baseline.customer
+    ,tpcds_2t_baseline.customer_address
+where ss_ticket_number = sr_ticket_number
+  and ss_item_sk = sr_item_sk
+  and ss_customer_sk = c_customer_sk
+  and ss_item_sk = i_item_sk
+  and ss_store_sk = s_store_sk
+  and c_current_addr_sk = ca_address_sk
+  and c_birth_country <> upper(ca_country)
+  and s_zip = ca_zip
+and s_market_id=10
+group by c_last_name
+        ,c_first_name
+        ,s_store_name
+        ,ca_state
+        ,s_state
+        ,i_color
+        ,i_current_price
+        ,i_manager_id
+        ,i_units
+        ,i_size)
+select c_last_name
+      ,c_first_name
+      ,s_store_name
+      ,sum(netpaid) paid
+from ssales
+where i_color = 'firebrick'
+group by c_last_name
+        ,c_first_name
+        ,s_store_name
+having sum(netpaid) > (select 0.05*avg(netpaid)
+                                 from ssales)
+order by c_last_name
+        ,c_first_name
+        ,s_store_name
+;
+-- end query 92 in stream 0 using template query24.tpl
